@@ -37,6 +37,19 @@ const userRoutes = (app, fs) => {
         });
     });
 
+    app.get('/jobs/:id', (req, res) => {
+        const userId = req.params["id"];
+        fs.readFile(dataPath, 'utf8', (err, data) => {
+            if (err) {
+                throw err;
+            }
+            let datas = JSON.parse(data)
+            let data1 = datas.filter(el => el.job_id == userId)
+            console.log(data1)
+            res.send(data1);
+        });
+    });
+
     // CREATE
     app.post('/users', (req, res) => {
 
