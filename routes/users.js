@@ -2,7 +2,7 @@
 const userRoutes = (app, fs) => {
 
     // variables
-    const dataPath = './data/users.json';
+    const dataPath = './data/MOCK_DATA.json';
 
     // helper methods
     const readFile = (callback, returnJson = false, filePath = dataPath, encoding = 'utf8') => {
@@ -27,7 +27,7 @@ const userRoutes = (app, fs) => {
     };
 
     // READ
-    app.get('/users', (req, res) => {
+    app.get('/jobs', (req, res) => {
         fs.readFile(dataPath, 'utf8', (err, data) => {
             if (err) {
                 throw err;
